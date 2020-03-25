@@ -1,11 +1,10 @@
-## My Project
+## Ion Schema Schemas
 
-TODO: Fill this README out!
+This repository contains schema definitions thought to be widely useful
+and serve as good examples of Ion Schema.  Each schema is contained
+within a top-level directory.  The collection currently includes:
 
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+* [isl](isl):  schema definition for the Ion Schema Language (ISL) itself
 
 ## License
 
