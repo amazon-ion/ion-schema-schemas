@@ -54,7 +54,7 @@ type::{
   type: type_inline,
   annotations: required::[type],
   fields: {
-    name: symbol,
+    name: { type: symbol, occurs: required },
   },
 }
 

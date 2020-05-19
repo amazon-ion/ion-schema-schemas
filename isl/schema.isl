@@ -34,11 +34,19 @@ type::{
   type: document,
   ordered_elements: [
     { type: schema_header, occurs: optional },
-    { type: $any, occurs: range::[0, max] },
+    { type: $non_type, occurs: range::[0, max] },
     { type: type, occurs: range::[0, max] },
-    { type: $any, occurs: range::[0, max] },
+    { type: $non_type, occurs: range::[0, max] },
     { type: schema_footer, occurs: optional },
   ],
+}
+
+type::{
+  name: $non_type,
+  type: $any,
+  not: {
+    annotations: required::[type],
+  },
 }
 
 schema_footer::{
