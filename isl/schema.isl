@@ -34,11 +34,29 @@ type::{
   type: document,
   ordered_elements: [
     { type: schema_header, occurs: optional },
-    { type: $any, occurs: range::[0, max] },
-    { type: type, occurs: range::[0, max] },
-    { type: $any, occurs: range::[0, max] },
+    { type: type_or_$non_isl, occurs: range::[0, max] },
     { type: schema_footer, occurs: optional },
   ],
+}
+
+type::{
+  name: type_or_$non_isl,
+  one_of: [
+    type,
+    $non_isl,
+  ],
+}
+
+type::{
+  name: $non_isl,
+  type: $any,
+  not: {
+    one_of: [
+      { annotations: required::[schema_header] },
+      { annotations: required::[type] },
+      { annotations: required::[schema_footer] },
+    ],
+  },
 }
 
 schema_footer::{
