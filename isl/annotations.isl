@@ -8,6 +8,6 @@ type::{
   name: annotations,
   type: list,
   element: annotation,
-  annotations: [optional, required],
+  annotations: [ordered, required, closed],
 }
 
