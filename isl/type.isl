@@ -12,6 +12,7 @@ schema_header::{
     { id: "isl/scale.isl",               type: scale },
     { id: "isl/timestamp_offset.isl",    type: timestamp_offset },
     { id: "isl/timestamp_precision.isl", type: timestamp_precision },
+    { id: "isl/utf8_byte_length.isl",    type: utf8_byte_length },
     { id: "isl/valid_values.isl",        type: valid_values },
   ],
 }
@@ -45,6 +46,7 @@ type::{
     timestamp_offset:    timestamp_offset,
     timestamp_precision: timestamp_precision,
     type:                type_reference,
+    utf8_byte_length:    utf8_byte_length,
     valid_values:        valid_values,
   },
 }
