@@ -23,7 +23,7 @@ type::{
 }
 
 type::{
-  name: type_inline,
+  name: constraint_bag,
   type: struct,
   fields: {
     all_of:              list_of_type_references,
@@ -52,8 +52,16 @@ type::{
 }
 
 type::{
+  name: type_inline,
+  type: constraint_bag,
+  fields: {
+    name: nothing,
+  },
+}
+
+type::{
   name: type,
-  type: type_inline,
+  type: constraint_bag,
   annotations: required::[type],
   fields: {
     name: { type: symbol, occurs: required },
