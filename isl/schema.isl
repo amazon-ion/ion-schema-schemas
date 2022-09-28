@@ -33,9 +33,13 @@ type::{
   name: schema,
   type: document,
   ordered_elements: [
+    { type: $non_isl, occurs: range::[0, max] },
+    { valid_values: [$ion_schema_1_0], occurs: optional },
+    { type: $non_isl, occurs: range::[0, max] },
     { type: schema_header, occurs: optional },
     { type: type_or_$non_isl, occurs: range::[0, max] },
     { type: schema_footer, occurs: optional },
+    { type: $non_isl, occurs: range::[0, max] },
   ],
 }
 
