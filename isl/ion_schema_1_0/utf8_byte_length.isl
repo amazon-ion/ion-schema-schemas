@@ -5,11 +5,10 @@ schema_header::{
 }
 
 type::{
-  name: occurs,
+  name: utf8_byte_length,
   one_of: [
-    { type: int, valid_values: range::[1, max] },
+    non_negative_int,
     range_non_negative_int,
-    { valid_values: [optional, required] },
   ],
 }
 

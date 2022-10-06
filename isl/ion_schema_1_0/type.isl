@@ -12,6 +12,7 @@ schema_header::{
     { id: "isl/ion_schema_1_0/scale.isl",               type: scale },
     { id: "isl/ion_schema_1_0/timestamp_offset.isl",    type: timestamp_offset },
     { id: "isl/ion_schema_1_0/timestamp_precision.isl", type: timestamp_precision },
+    { id: "isl/ion_schema_1_0/utf8_byte_length.isl",    type: utf8_byte_length },
     { id: "isl/ion_schema_1_0/valid_values.isl",        type: valid_values },
   ],
 }
@@ -34,7 +35,7 @@ type::{
     contains:            contains,
     content:             content,
     element:             type_reference,
-    fields:              { type: struct, element: type_reference },
+    fields:              { type: struct, element: type_reference, container_length: range::[1, max] },
     not:                 type_reference,
     occurs:              occurs,
     one_of:              list_of_type_references,
@@ -45,6 +46,7 @@ type::{
     timestamp_offset:    timestamp_offset,
     timestamp_precision: timestamp_precision,
     type:                type_reference,
+    utf8_byte_length:    utf8_byte_length,
     valid_values:        valid_values,
   },
 }
@@ -75,6 +77,7 @@ type::{
     type_inline,
     type_import_inline,
   ],
+  not: { valid_values: [document], annotations: required::[nullable] },
   annotations: [nullable],
 }
 

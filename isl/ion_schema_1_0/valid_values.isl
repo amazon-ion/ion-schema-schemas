@@ -15,12 +15,14 @@ type::{
     { one_of: [ range_boundary_number, { valid_values: [min] } ] },
     { one_of: [ range_boundary_number, { valid_values: [max] } ] },
   ],
+  not: { contains: [min, max] },
   container_length: 2,
 }
 
 type::{
   name: range_boundary_timestamp,
   type: timestamp,
+  not: { timestamp_offset: ["-00:00"] },
   annotations: [exclusive],
 }
 
@@ -32,14 +34,26 @@ type::{
     { one_of: [ range_boundary_timestamp, { valid_values: [min] } ] },
     { one_of: [ range_boundary_timestamp, { valid_values: [max] } ] },
   ],
+  not: { contains: [min, max] },
   container_length: 2,
 }
 
 type::{
   name: valid_values,
   type: list,
-  any_of: [
-    { type: list, element: $any },
+  one_of: [
+    {
+      type: list,
+      annotations: closed::[],
+      element: {
+        type: $any,
+        one_of: [
+          { type: $any, annotations: closed::[] },
+          range_number,
+          range_timestamp,
+        ]
+      }
+    },
     range_number,
     range_timestamp,
   ],
