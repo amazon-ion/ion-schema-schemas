@@ -18,5 +18,6 @@ type::{
     { one_of: [ range_boundary_non_negative_int, { valid_values: [min] } ] },
     { one_of: [ range_boundary_non_negative_int, { valid_values: [max] } ] },
   ],
+  not: { contains: [min, max]},
   container_length: 2,
 }
