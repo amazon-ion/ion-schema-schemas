@@ -32,13 +32,30 @@ type::{
 type::{
   name: schema,
   type: document,
+  any_of:[
+    schema_with_header_and_footer,
+    schema_without_header_and_footer,
+  ],
+}
+
+type::{
+  name: schema_without_header_and_footer,
+  ordered_elements: [
+    { type: $non_isl, occurs: range::[0, max] },
+    { valid_values: [$ion_schema_1_0], occurs: optional },
+    { type: type_or_$non_isl, occurs: range::[0, max] },
+  ],
+}
+
+type::{
+  name: schema_with_header_and_footer,
   ordered_elements: [
     { type: $non_isl, occurs: range::[0, max] },
     { valid_values: [$ion_schema_1_0], occurs: optional },
     { type: $non_isl, occurs: range::[0, max] },
-    { type: schema_header, occurs: optional },
+    { type: schema_header },
     { type: type_or_$non_isl, occurs: range::[0, max] },
-    { type: schema_footer, occurs: optional },
+    { type: schema_footer },
     { type: $non_isl, occurs: range::[0, max] },
   ],
 }
