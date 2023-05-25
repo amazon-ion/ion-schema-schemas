@@ -18,16 +18,18 @@ type::{
         { type: top_level_open_content, occurs: range::[0, max] },
         isl_2_0_version_marker,
         { type: top_level_open_content, occurs: range::[0, max] },
-        schema_header,
+        { type: schema_header, occurs: optional },
         { one_of: [top_level_open_content, named_type_definition], occurs: range::[0, max] },
         schema_footer,
-        { type: top_level_open_content, occurs: range::[0, max] },
+        { type: $any, occurs: range::[0, max] },
       ]
     },
     {
       ordered_elements: [
         { type: top_level_open_content, occurs: range::[0, max] },
         isl_2_0_version_marker,
+        { type: top_level_open_content, occurs: range::[0, max] },
+        { type: schema_header, occurs: optional },
         { one_of: [top_level_open_content, named_type_definition], occurs: range::[0, max] },
       ]
     }
